@@ -1,0 +1,15 @@
+#!/bin/sh
+unset GIT_DIR
+NowPath=`pwd` #需要解除环境变量GIT_DIR环境变量才能自由移动当前位置。
+echo "====now path is :"$NowPath
+DeployPath="/tmp/deploy"
+echo "====deploy path is :"$DeployPath
+cd $DeployPath
+echo "====cd deploy path"
+git fetch origin
+git pull
+echo "====deploy done"
+cd $NowPath
+echo "====fine"
+# --- Finished
+exit 0
